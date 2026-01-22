@@ -3,7 +3,11 @@ import cors from "cors";
 import fs from "fs";
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: "*",
+  methods: ["GET","POST","DELETE"],
+  allowedHeaders: ["Content-Type"]
+}));
 app.use(express.json());
 
 const DB_FILE = "./db.json";

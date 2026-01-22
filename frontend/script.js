@@ -1,4 +1,5 @@
-const API_BASE = "http://localhost:5000"; // change after deploying backend
+const API_BASE = "https://smartspend-fullstack.onrender.com";
+
 
 const txnForm = document.getElementById("txnForm");
 const txnTable = document.getElementById("txnTable");
