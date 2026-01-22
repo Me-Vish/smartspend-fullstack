@@ -1,0 +1,321 @@
+/* =========================
+   SmartSpend - Premium UI
+   ========================= */
+
+:root{
+  --bg: #0b1220;
+  --card: rgba(255,255,255,0.06);
+  --card2: rgba(255,255,255,0.08);
+  --border: rgba(255,255,255,0.10);
+  --text: #eaf0ff;
+  --muted: rgba(234,240,255,0.72);
+
+  --primary: #4c7dff;
+  --primary2:#6a5cff;
+
+  --green:#58ffb5;
+  --red:#ff6a6a;
+  --yellow:#ffcf5a;
+
+  --shadow: 0 18px 45px rgba(0,0,0,0.40);
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+body{
+  background: radial-gradient(circle at top, #17213a 0%, var(--bg) 45%, #060910 100%);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+/* =========================
+   Topbar
+   ========================= */
+.topbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:18px 22px;
+  border-bottom:1px solid rgba(255,255,255,0.08);
+  background: rgba(11,18,32,0.75);
+  backdrop-filter: blur(14px);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+
+.logo{
+  width:46px;
+  height:46px;
+  border-radius:16px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:900;
+  letter-spacing:0.5px;
+  background: linear-gradient(135deg, rgba(76,125,255,0.35), rgba(255,255,255,0.10));
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+.brand h1{
+  font-size:18px;
+  font-weight:900;
+  line-height: 1.1;
+}
+
+.sub{
+  font-size:12px;
+  color: var(--muted);
+  margin-top: 3px;
+}
+
+.actions{
+  display:flex;
+  gap:10px;
+  flex-wrap: wrap;
+}
+
+/* =========================
+   Layout Container
+   ========================= */
+.container{
+  max-width: 1100px;
+  margin: 22px auto;
+  padding: 0 16px 32px;
+}
+
+/* =========================
+   Cards / Sections
+   ========================= */
+.card{
+  background: var(--card);
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:18px;
+  box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+.section{
+  margin-top: 14px;
+}
+
+.card h2{
+  font-size:16px;
+  font-weight:900;
+  margin-bottom: 12px;
+}
+
+.card h3{
+  font-size:13px;
+  font-weight:800;
+  color: var(--muted);
+  letter-spacing:0.2px;
+}
+
+.muted{
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+/* Decorative glow */
+.card::before{
+  content:"";
+  position:absolute;
+  right:-60px;
+  top:-70px;
+  width:200px;
+  height:200px;
+  background: radial-gradient(circle, rgba(76,125,255,0.28), transparent 65%);
+  filter: blur(10px);
+  pointer-events:none;
+}
+
+/* =========================
+   Stats Cards
+   ========================= */
+.grid-3{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:14px;
+}
+
+.big{
+  font-size:30px;
+  font-weight:1000;
+  margin-top: 8px;
+}
+
+.credit{
+  color: var(--green);
+}
+
+.debit{
+  color: var(--red);
+}
+
+/* =========================
+   Form
+   ========================= */
+.form{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+.row{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:12px;
+}
+
+input, select{
+  width:100%;
+  padding:12px 12px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,0.14);
+  background: rgba(0,0,0,0.35);
+  color: var(--text);
+  outline:none;
+  transition: 0.2s ease;
+}
+
+input::placeholder{
+  color: rgba(234,240,255,0.45);
+}
+
+input:focus, select:focus{
+  border-color: rgba(76,125,255,0.85);
+  box-shadow: 0 0 0 4px rgba(76,125,255,0.15);
+}
+
+/* =========================
+   Buttons
+   ========================= */
+.btn{
+  padding:11px 16px;
+  border-radius:14px;
+  border:none;
+  cursor:pointer;
+  font-weight:900;
+  background: linear-gradient(135deg, var(--primary), var(--primary2));
+  color: white;
+  width: fit-content;
+  transition: 0.2s ease;
+}
+
+.btn:hover{
+  transform: translateY(-1px);
+  opacity: 0.95;
+}
+
+.btn:active{
+  transform: translateY(0px);
+}
+
+.secondary{
+  background: rgba(255,255,255,0.10);
+  border: 1px solid rgba(255,255,255,0.12);
+  box-shadow: none;
+}
+
+/* =========================
+   Filters + Table
+   ========================= */
+.filters{
+  display:flex;
+  gap:12px;
+  flex-wrap: wrap;
+  align-items:center;
+  margin-bottom: 12px;
+}
+
+.filters input{
+  flex: 1;
+  min-width: 220px;
+}
+
+.table-wrap{
+  overflow:auto;
+  border-radius:16px;
+  border:1px solid rgba(255,255,255,0.10);
+  background: rgba(0,0,0,0.22);
+}
+
+table{
+  width:100%;
+  border-collapse: collapse;
+  min-width: 820px;
+}
+
+thead th{
+  font-size:12px;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: rgba(234,240,255,0.68);
+  background: rgba(255,255,255,0.04);
+}
+
+th, td{
+  padding:13px 12px;
+  text-align:left;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  font-size:13px;
+}
+
+tbody tr:hover{
+  background: rgba(255,255,255,0.04);
+}
+
+/* Delete button inside table */
+td button{
+  padding:9px 12px;
+  border-radius:12px;
+  font-weight:800;
+}
+
+/* =========================
+   Insights Card
+   ========================= */
+#insightsCard{
+  border: 1px solid rgba(88,255,181,0.20);
+}
+
+#insightsText{
+  white-space: pre-line;
+  margin-top: 10px;
+  padding: 14px;
+  border-radius: 14px;
+  background: rgba(0,0,0,0.25);
+  border: 1px solid rgba(255,255,255,0.10);
+}
+
+/* =========================
+   Mobile Responsive
+   ========================= */
+@media(max-width: 950px){
+  .grid-3{
+    grid-template-columns: 1fr;
+  }
+  .row{
+    grid-template-columns: 1fr;
+  }
+  .topbar{
+    gap:12px;
+    flex-wrap: wrap;
+  }
+}
